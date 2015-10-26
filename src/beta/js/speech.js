@@ -44,7 +44,6 @@ function initSpeech()
 function getVoices()
 {
     var allVoices = speechSynthesis.getVoices();
-    console.log(allVoices);
 
     femaleVoice = allVoices.filter(function (voice) {
         return voice.name == "Fiona";
@@ -53,9 +52,6 @@ function getVoices()
     maleVoice = allVoices.filter(function (voice) {
         return voice.name == "Alex";
     })[0];
-    
-    // console.log(femaleVoice);
-    // console.log(maleVoice);
 }
 
 
@@ -75,7 +71,6 @@ function speak(text, voice, callback)
     else
         speech.pitch = 1.0;
     
-    
     speech.onend = function () {
         speaking = null;
     };
@@ -86,13 +81,6 @@ function speak(text, voice, callback)
 
     speechSynthesis.speak(speech);
     return speech;
-}
-
-
-function test()
-{
-    // speak("male", maleVoice);
-    // speak("female", femaleVoice);
 }
 
 
@@ -123,7 +111,7 @@ function initHovers()
         var id = $(this).parent().parent().parent().attr("speech"); // ugly!
         if(!id)
             return;
-        
+
         var num = Math.floor(Math.random()*phrases[id].length);
         speak(phrases[id][num], maleVoice);
     });
