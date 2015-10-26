@@ -105,6 +105,7 @@ function initHovers()
         
         // fade out all non vowels
         $("div.entry h1").on("mouseenter", function() {
+            $("span", this).stop();
             $("span", this).animate({
                 opacity: 0.0
             }, 500);
@@ -112,6 +113,7 @@ function initHovers()
 
         // fade back in all non vowels
         $("div.entry h1").on("mouseleave", function() {
+            $("span", this).stop();
             $("span", this).animate({
                 opacity: 1.0
             }, 500);
