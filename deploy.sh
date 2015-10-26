@@ -2,7 +2,7 @@
 
 echo -e "deploying site public updates to github"
 
-#grunt
+grunt
 
 git add public/* -f
 
