@@ -20,29 +20,29 @@ body {
 a:link {
     color: #000;
     text-decoration: none;
-    transition: color 0.5s;
+    /* transition: color 0.5s; */
 }
 
 a:active {
     color: #000;
     text-decoration: none;
-    transition: color 0.5s;
+    /* transition: color 0.5s; */
 }
 
 a:hover {
-    color: #eee;
+    color: #000;
     text-decoration: none; 
-    transition: color 0.5s;
+    /* transition: color 0.5s; */
 }
 
 a:visited {
     color: #000;
     text-decoration: none;
-    transition: color 0.5s;
+    /* transition: color 0.5s; */
 }
 
 div.entry a:hover {
-    color: #eee;
+    color: #000;
 }
 
 
@@ -115,7 +115,7 @@ div.wrapper {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 div.entryWrapper {
@@ -129,7 +129,7 @@ div.entryWrapper {
     flex-direction: column;
     justify-content: center;
 
-    z-index: 2000;
+    z-index: 1000;
 
 }
 

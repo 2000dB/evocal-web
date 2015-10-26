@@ -24,44 +24,57 @@
     $(document).ready(function(){
         initSpeech();
         
-        // setTimeout(function(){
+        // select all but vowels and place them between span tags so that they can be faded down on hover
+        $('div.entry').each(function(){
+            $("h1",this).html($("h1",this).html().replace(/[^aeiouy\s.,]+/gi, function func(x) {return ("<span>"+x+"</span>");}));
+        });
+        
+        // fade out all non vowels
+        $("div.entry h1").on("mouseenter", function() {
+            $("span", this).animate({
+                opacity: 0.0
+            }, 500);
+        });
 
-        // }, 1000);
+        // fade back in all non vowels
+        $("div.entry h1").on("mouseleave", function() {
+            $("span", this).animate({
+                opacity: 1.0
+            }, 500);
+        });
 
-        // setTimeout(function(){
-        //     setTimeout(function(){
-        //         speak("fuck you... fuck you... fuck... you... ", maleVoice);
-        //     }, 1000);
+        // Intro animation 
+        $(".logo").show();
+        $(".splash").hide();
+        $(".entryWrapper").hide();
+        setTimeout(function(){
+            speak("e VOCAL", maleVoice);
+        }, 100);
+        setTimeout(function(){
+            $(".splash").fadeIn(5000, function() {
+                setTimeout(function(){
+                    $(".logo").hide();
+                    $("div.entryWrapper").show();
+                    $(".splash").fadeOut(5000, function() {
                 
-        //     $(".splash").fadeIn(5000, function() {
+                    });
+                }, 2000);
+            });
+        }, 2000);
 
-                
-        //         setTimeout(function(){
-        //             $(".logo").hide();
-        //             $(".splash").fadeOut(5000, function() {
-        //                 $("div.entryWrapper").fadeIn(1000);
-        //             });
-        //         }, 2000);
-        //     });
-        // }, 2000);
-
-        var speeches = ["ass hole", "fuck", "shit", "art", "fart"];
+        var speeches = ["paradise is the same as here only much, much better", "b", "c", "d", "e"];
         var lastHover;
-        $("div.speak").on("mouseenter", function() {
-            // if(lastHover == $(this).attr("speech") || !$(this).attr("speech")) // don't say the same thing twic
+        $("div.speak h1").on("mouseenter", function() {
+            // if(lastHover == $(this).attr("speech")) // || !$(this).attr("speech")) // don't say the same thing twic                
             //     return;
             // lastHover = $(this).attr("speech");
-            
+
             var voiceChoice = $(this).attr("voice");
             var voice = maleVoice;
             if(voiceChoice == "female")
                 voice = femaleVoice;
-            // speak($(this).attr("speech"), voice);
             speak(speeches[Math.floor(Math.random()*5)], voice);
         });
-
-        test();
-        // speak("e vocal", maleVoice);
 
     });
   </script>
@@ -73,7 +86,7 @@
   <div class="splash"></div>
   <div class="wrapper">
     <div class="entryWrapper">
-      <div class="speak entry" speech="hello joho">
+      <div class="speak entry">
         <div id="title">
           <a href="#" target="_blank">
             <h1>әṾӨȻΔ𐐉, AN EXHIBITION BY JENNA SUTELA AND LARS TCF HOLDHUS</h1>
