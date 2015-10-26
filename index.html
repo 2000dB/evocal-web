@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+  
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
@@ -13,18 +14,108 @@
   <meta name="description" content="">
   <title>әṾӨȻΔ𐐉</title>
 
-  <style>
-    body {
-    background-image: url(eVOCAL-logo.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40vw auto;
-    margin: 100vh auto auto auto;
-    }
-  </style>
+ 
+  <link rel="stylesheet" href="css/evocal.css" />
+  
+  <script type="text/javascript" src="js/pdf/pdf.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/speech.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        initSpeech();
+        
+        // setTimeout(function(){
+
+        // }, 1000);
+
+        // setTimeout(function(){
+        //     setTimeout(function(){
+        //         speak("fuck you... fuck you... fuck... you... ", maleVoice);
+        //     }, 1000);
+                
+        //     $(".splash").fadeIn(5000, function() {
+
+                
+        //         setTimeout(function(){
+        //             $(".logo").hide();
+        //             $(".splash").fadeOut(5000, function() {
+        //                 $("div.entryWrapper").fadeIn(1000);
+        //             });
+        //         }, 2000);
+        //     });
+        // }, 2000);
+
+        var speeches = ["ass hole", "fuck", "shit", "art", "fart"];
+        var lastHover;
+        $("div.speak").on("mouseenter", function() {
+            // if(lastHover == $(this).attr("speech") || !$(this).attr("speech")) // don't say the same thing twic
+            //     return;
+            // lastHover = $(this).attr("speech");
+            
+            var voiceChoice = $(this).attr("voice");
+            var voice = maleVoice;
+            if(voiceChoice == "female")
+                voice = femaleVoice;
+            // speak($(this).attr("speech"), voice);
+            speak(speeches[Math.floor(Math.random()*5)], voice);
+        });
+
+        test();
+        // speak("e vocal", maleVoice);
+
+    });
+  </script>
+
 </head>
 
 <body>
+  <div class="logo"></div>
+  <div class="splash"></div>
+  <div class="wrapper">
+    <div class="entryWrapper">
+      <div class="speak entry" speech="hello joho">
+        <div id="title">
+          <a href="#" target="_blank">
+            <h1>әṾӨȻΔ𐐉, AN EXHIBITION BY JENNA SUTELA AND LARS TCF HOLDHUS</h1>
+            <h2>At Sinne Gallery, Helsinki, November 6–29, 2015</h2>
+          </a>
+        </div>
+      </div>
+
+      <div class="speak entry">
+        <div id="paradise">
+          <a href="#" target="_blank">
+            <h1>PARADISE IS EXACTLY LIKE WHERE YOU ARE RIGHT NOW ONLY MUCH, MUCH BETTER</h1>
+            <h2>Text by Tess Edmonson</h2>
+            <h2>Volume by Johanna Lundberg and Vincent de Belleval</h2>
+          </a>
+        </div>
+      </div>
+
+      <div class="speak entry">
+        <div id="tcf">
+        <a href="#" target="_blank">
+          <h1>HERE ARE SOME INSTRUCTION</h1>
+          <h2>By Lars TCF Holdus</h2>
+        </a>
+        </div>
+      </div>
+            
+      <div class="speak entry">
+        <div id="script">
+        <a href="#" target="_blank">
+          <h1>THIS IS A SCRIPT</h1>
+          <h2>By Jenna Sutela</h2>
+        </a>
+        </div>
+      </div>
+      
+      <div id="credit" class="speak" speech="Vinny the belly in the house with my main bitch Joho... yo">
+        <h2>Website by <a href="http://johannalundberg.com" target="_blank">Johanna Lundberg</a> and <a href="http://vincentdebelleval.com" target="_blank">Vincent de Belleval</a></h2>
+      </div>
+
+    </div>
+  </div>
 </body>
 
 </html>
