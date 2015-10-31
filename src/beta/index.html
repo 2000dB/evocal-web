@@ -19,14 +19,14 @@
         $("#landing").each(function() {
             $(this).css('visibility','visible').hide().show();
             $("#logo").each(function() {
-                $(this).css('visibility','visible').hide().fadeIn(1, function() {
+                $(this).css('visibility','visible').hide().fadeIn(6000, function() {
                     $("#pdf").css('visibility','visible').hide().show();
                     $(".entry").each(function() { 
                         $(this).css('visibility','visible').hide().show();
                     });
                 });
             });
-            $(this).animate({opacity: 0.0}, 1, function() {
+            $(this).animate({opacity: 0.0}, 10000, function() {
             });
         });
     }
