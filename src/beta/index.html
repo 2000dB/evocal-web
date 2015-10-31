@@ -16,18 +16,17 @@
   <script type="text/javascript" src="http://localhost/~vdb/evocal-web/src/beta/js/jquery.min.js"></script>
   <script type="text/javascript">
     function landing() {
-
         $("#landing").each(function() {
             $(this).css('visibility','visible').hide().show();
             $("#logo").each(function() {
-                $(this).css('visibility','visible').hide().fadeIn(5000, function() {
+                $(this).css('visibility','visible').hide().fadeIn(1, function() {
                     $("#pdf").css('visibility','visible').hide().show();
                     $(".entry").each(function() { 
                         $(this).css('visibility','visible').hide().show();
                     });
                 });
             });
-            $(this).animate({opacity: 0.0}, 10000, function() {
+            $(this).animate({opacity: 0.0}, 1, function() {
             });
         });
     }
@@ -87,12 +86,12 @@
     <div id="pdf" class="hidden">
       <div class="entry exhibit hidden">
         <a href="http://localhost/~vdb/evocal-web/src/beta/pdf/eVOCAL-paradise-is-exactly-like-where-you-are-right-now-only-much-much-better.pdf" target="_blank">
-          <img src="http://localhost/~vdb/evocal-web/src/beta/assets/pdf.png" />
+          <span class="space"></span><img src="http://localhost/~vdb/evocal-web/src/beta/assets/pdf.png" />
         </a>
       </div>
       <div class="entry paradise hidden">
         <a href="http://localhost/~vdb/evocal-web/src/beta/pdf/eVOCAL-an-exhibition-by-jenna-sutela-and-lars-tcf-holdhus.pdf" target="_blank">
-          <img src="http://localhost/~vdb/evocal-web/src/beta/assets/pdf.png" />
+          <span class="space"></span><img src="http://localhost/~vdb/evocal-web/src/beta/assets/pdf.png" />
           </a>   
       </div>
       <!-- <div class="entry"></div> -->
