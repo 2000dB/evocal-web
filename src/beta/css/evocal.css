@@ -2,18 +2,14 @@
     margin: 0px;
     padding: 0px;
 
-    
     font-family: Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
-
 }
 
 body {
-    width: 100%;
-    ight: 100%;
-    overflow: auto;
+    background-color: #fff;
 }
 
 
@@ -39,8 +35,8 @@ a:visited {
 
 
 h1 {
-    font-size: 3vh;
-    line-height: 4vh;
+    font-size: 2vh;
+    line-height: 3vh;
     margin-bottom: 1vh;
     display: inline-block;
 }
@@ -51,125 +47,112 @@ h2 {
 }
 
 
-div.wrapper {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100vh;
-
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.hidden {
+    visibility: hidden;
 }
 
-.logo {
+.hiddenDisplay {
     display: none;
+}
+
+.frame.loader:not(.loaded) {
+    display: none;
+}
+
+.frame.loaded {
+    display: visible;
+}
+
+div.frame {
     position: absolute;
     top: 0px;
-    let: 0px;
-    width: 100%;
-    height: 100%;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fff;
+}
 
+
+
+#logo.frame {
     background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/logo.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: 30vw;
+    -webkit-background-size: 60vw;
+    -moz-background-size: 60vw;
+    -o-background-size: 60vw;
+    background-size: 60vw;
+    z-index: 2000;
+    Background-color: #fff;
 }
 
-.splash {
-    display: none;
-    position: absolute;
-    top: 0px;
-    let: 0px;
-    width: 100%;
-    height: 100%;
 
-    background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/test.jpg');
+#landing.frame {
+    background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/vocal-tract-ballistic.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    z-index: 2000;
+    background-size: cover;
+    opacity: 1.0;
 }
 
-div.entryWrapper {
-    position: relative;
-    width: 100vw;
-    min-width: 800px;
-    height: 90vh;
-    margin: 0px auto;
+#pdf {
+    position: absolute;
+    width: 20vw;
+    height: 14vh;
     
-    flex-direction: column;
-    justify-content: center;
-    z-index: 1000;
-    float: left;
-}
+    top: 50%;
+    left: 50%;
+    margin-top: -7.5vh;
+    margin-left: -10vw;
 
-div.entry {
-    position: relative;
-    min-height: 25%;
-    margin: 1vh 0px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     /* background-color: blue; */
 }
 
+.entry {                  
+    position: relative;
+    float: left;
+        
+    width: 40%;
+    height: 100%;
+    margin: 0 5%;
 
+    /* background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/pdf.png'); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
 
+    /* background-color: red; */
+}
 
+.entry img {
+    max-width:100%;
+    max-height:100%;
+}
+
+.entry:hover {
+    cursor: pointer;
+}
 
 #title {
-    position: relative;
-    width: 60vw;
-    min-width: 600px;
-    text-align: left;
-    margin-left: 25vw;
+    position: absolute;
+    width: 100vw;
+    height: 20vh;
+    bottom: 0px;
+    /* background-color: red; */
 }
 
-
-#paradise {
+.title {
     position: relative;
-    width: 60vw;
-    min-width: 600px;
-    margin-left: 10vw;
-
-}
-
-#tcf {
-    position: relative;
-    width: 60vw;
-    min-width: 600px;    
-    margin-left: 30vw;
+    width: 100%;
+    height: 100%;
     text-align: center;
 }
-
-#script {
-    position: relative;
-    padding-right: 60vw;
-    text-align: right;
-}
-
-#credit {
-    position: absolute;
-    min-width: 400px;
-    bottom: 0px;
-    right: 0px;
-    margin: 1vh;
-    -webkit-transform: translate(0%, 0%) rotate(270deg);
-    transform-origin: 0% 100%;
-    display: inline-block;
-
-}
-
-
