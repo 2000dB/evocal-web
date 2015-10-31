@@ -74,7 +74,6 @@ div.frame {
 }
 
 
-
 #logo.frame {
     background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/logo.svg');
     background-repeat: no-repeat;
@@ -105,13 +104,11 @@ div.frame {
     position: absolute;
     width: 20vw;
     height: 14vh;
-    
     top: 50%;
     left: 50%;
     margin-top: -7.5vh;
     margin-left: -10vw;
-
-    /* background-color: blue; */
+    display: block;
 }
 
 .entry {                  
@@ -122,15 +119,12 @@ div.frame {
     height: 100%;
     margin: 0 5%;
 
-    /* background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/pdf.png'); */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
-
-    /* background-color: red; */
 }
 
 .entry img {
@@ -147,8 +141,7 @@ div.frame {
     width: 100vw;
     height: 20vh;
     bottom: 0px;
-    /* background-color: red; */
-}
+ }
 
 .title {
     position: relative;

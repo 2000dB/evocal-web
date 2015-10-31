@@ -16,21 +16,18 @@
   <script type="text/javascript" src="http://localhost/~vdb/evocal-web/src/beta/js/jquery.min.js"></script>
   <script type="text/javascript">
     function landing() {
+
         $("#landing").each(function() {
             $(this).css('visibility','visible').hide().show();
-            $(this).animate({opacity: 0.0}, 2000, function() {
-                $("#logo").css('visibility','visible').hide().fadeIn(2000, function() {
+            $("#logo").each(function() {
+                $(this).css('visibility','visible').hide().fadeIn(5000, function() {
                     $("#pdf").css('visibility','visible').hide().show();
                     $(".entry").each(function() { 
                         $(this).css('visibility','visible').hide().show();
                     });
-                    // $("#title").css('visibility','visible').hide().show();
-                    
-                    // $(".title").each(function() { 
-                    //     $(this).css('visibility','visible').hide().show();
-                    // });
-                    
                 });
+            });
+            $(this).animate({opacity: 0.0}, 10000, function() {
             });
         });
     }
