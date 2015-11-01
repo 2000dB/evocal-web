@@ -24,7 +24,32 @@
   <link rel="stylesheet" href="http://localhost/~vdb/evocal-web/src/beta/css/evocal.css" />
   <script type="text/javascript" src="http://localhost/~vdb/evocal-web/src/beta/js/jquery.min.js"></script>
   <script type="text/javascript">
+    var mobileSize = false;
     var landed = false;
+
+    if(matchMedia) {
+        var mq = window.matchMedia("(max-width: 600px)");
+        mq.addListener(WidthChange);
+        WidthChange(mq);
+    }
+    
+    function WidthChange(mq) {
+            if (mq.matches) {
+                mobileSize = true;
+            }
+            else
+            {
+                mobileSize = false;
+                // if(landed)
+                // {
+                //     $(".entry").each(function() {
+                //         $(this).css('visibility','visible').hide().fadeIn(500);
+                //     });
+                // }
+            }
+    }
+
+
     function fadeToMain() {
         if( landed )
             return
@@ -32,10 +57,16 @@
 
         $("#logo").each(function() {
             $("#pdf").css('visibility','visible').hide().show();
-            $(".entry").each(function() { 
-                $(this).css('visibility','visible').hide().fadeIn(4000);
-            });
             $(this).css('visibility','visible').hide().fadeIn(4000, function() {
+                if(!mobileSize)
+                {
+                    $(".entry").each(function() { 
+                        $(this).css('visibility','visible').hide().fadeIn(500);
+                    });
+                } else {
+                    $(".title").css('visibility','visible').hide().fadeIn(500);
+                }
+                
             });
         });
         $(this).animate({opacity: 0.0}, 5000, function() {
@@ -46,7 +77,7 @@
     function landing() {
         $("#landing").each(function() {
             $(this).css('visibility','visible').hide().show();
-            setTimeout(fadeToMain, 2000);
+            setTimeout(fadeToMain, 3000);
         });
     }
 

@@ -71,34 +71,6 @@ div.frame {
 }
 
 
-#logo.frame {
-    background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/logo.svg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    -webkit-background-size: 60vw;
-    -moz-background-size: 60vw;
-    -o-background-size: 60vw;
-    background-size: 60vw;
-    z-index: 2000;
-    Background-color: #fff;
-}
-
-
-#landing.frame {
-    background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/vocal-tract-ballistic.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
-    opacity: 1.0;
-    /* background-color: red; */
-}
-
-
 #pdf {
     position: absolute;
     width: 20vw;
@@ -114,13 +86,6 @@ div.frame {
     width: 40%;
     height: 100%;
     margin: 0 5%;
-
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
 }
 
 .space {
@@ -148,17 +113,41 @@ div.frame {
     #title {
         position: absolute;
         width: 100vw;
-        height: 20vh;
+        height: 14vh;
         bottom: 0px;
     }
 
     .title {
         position: relative;
+        text-align: center;
         width: 100%;
         height: 100%;
-        text-align: center;
     }
 
+    #landing.frame {
+        background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/vocal-tract-ballistic.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        -webkit-background-size: 30vw;
+        -moz-background-size: 30vw;
+        -o-background-size: 30vw;
+        background-size: 30vw;
+        opacity: 1.0;
+    }
+
+    #logo.frame {
+        background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/logo.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        -webkit-background-size: 70vw;
+        -moz-background-size: 70vw;
+        -o-background-size: 70vw;
+        background-size: 70vw;
+        z-index: 2000;
+        background-color: #fff;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -174,21 +163,48 @@ div.frame {
     }
 
     .hiddenDisplay {
-        display: visible;
+        display: none;
     }
+    
     #title {
         position: absolute;
         width: 100vw;
         bottom: 0px;
-        /* background-color: red; */
     }
 
     .title {
         position: relative;
-        /* width: 100%; */
-        /* height: 100%; */
         text-align: center;
         margin-bottom: 8vh;
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
+
+    #landing.frame {
+        background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/vocal-tract-ballistic.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        -webkit-background-size: 70vw;
+        -moz-background-size: 70vw;
+        -o-background-size: 70vw;
+        background-size: 70vw;
+        opacity: 1.0;
+    }
+    
+    #logo.frame {
+        background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/logo.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        -webkit-background-size: 90vw;
+        -moz-background-size: 90vw;
+        -o-background-size: 90vw;
+        background-size: 90vw;
+        z-index: 2000;
+        background-color: #fff;
+    }
+
+
 }
 
