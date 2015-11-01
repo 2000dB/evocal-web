@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<credit></credit>
+
+<!-- TODO: -->
+<!-- DONE - center PDFs on horizontal bar of O -->
+<!-- DONE - intro: keep vocal tract opaque for a bit longer and then fade faster -->
+<!-- DONE - img slow to load, try a smaller image and add timeout in case it takes too long to load? -->
+<!-- DONE - mobile: get rid of PDFs and just display a list of works bellow -->
+<!-- - transition between icon hovers could be smoother -->
+
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -17,23 +24,35 @@
   <link rel="stylesheet" href="http://localhost/~vdb/evocal-web/src/beta/css/evocal.css" />
   <script type="text/javascript" src="http://localhost/~vdb/evocal-web/src/beta/js/jquery.min.js"></script>
   <script type="text/javascript">
+    var landed = false;
+    function fadeToMain() {
+        if( landed )
+            return
+        landed = true;
+
+        $("#logo").each(function() {
+            $("#pdf").css('visibility','visible').hide().show();
+            $(".entry").each(function() { 
+                $(this).css('visibility','visible').hide().fadeIn(4000);
+            });
+            $(this).css('visibility','visible').hide().fadeIn(4000, function() {
+            });
+        });
+        $(this).animate({opacity: 0.0}, 5000, function() {
+        });
+    }
+
+
     function landing() {
         $("#landing").each(function() {
             $(this).css('visibility','visible').hide().show();
-            $("#logo").each(function() {
-                $(this).css('visibility','visible').hide().fadeIn(6000, function() {
-                    $("#pdf").css('visibility','visible').hide().show();
-                    $(".entry").each(function() { 
-                        $(this).css('visibility','visible').hide().show();
-                    });
-                });
-            });
-            $(this).animate({opacity: 0.0}, 10000, function() {
-            });
+            setTimeout(fadeToMain, 2000);
         });
     }
 
     $(document).ready(function(){
+
+        setTimeout(fadeToMain, 1000);
 
         // select all but vowels and place them between span tags so that they can be faded down on hover
         $('.title').each(function(){
@@ -99,25 +118,29 @@
 
     <div id="title">
       <div class="title exhibit hiddenDisplay">
-        <h1>әṾӨȻΔ𐐉, AN EXHIBITION BY JENNA SUTELA AND LARS TCF HOLDHUS</h1>
-        <h2>At Sinne Gallery, Helsinki, November 6–29, 2015</h2>
+        <a href="http://localhost/~vdb/evocal-web/src/beta/pdf/eVOCAL-an-exhibition-by-jenna-sutela-and-lars-tcf-holdhus.pdf" target="_blank">
+          <h1>әṾӨȻΔ𐐉, AN EXHIBITION BY JENNA SUTELA AND LARS TCF HOLDHUS</h1>
+          <h2>At Sinne Gallery, Helsinki, November 6–29, 2015</h2>
+        </a>
       </div>
 
       <div class="title paradise hiddenDisplay">
-        <h1>PARADISE IS EXACTLY LIKE WHERE YOU ARE RIGHT NOW ONLY MUCH, MUCH BETTER</h1>
-         <h2>Text by Tess Edmonson</h2>
-         <h2>Volume by Johanna Lundberg and Vincent de Belleval</h2>
+        <a href="http://localhost/~vdb/evocal-web/src/beta/pdf/eVOCAL-paradise-is-exactly-like-where-you-are-right-now-only-much-much-better.pdf" target="_blank">
+          <h1>PARADISE IS EXACTLY LIKE WHERE YOU ARE RIGHT NOW ONLY MUCH, MUCH BETTER</h1>
+          <h2>Text by Tess Edmonson</h2>
+          <h2>Volume by Johanna Lundberg and Vincent de Belleval</h2>
+          </a>
      </div>
 
-      <div class="title tcf hiddenDisplay">
-        <h1>HERE ARE SOME INSTRUCTION</h1>
-        <h2>By Lars TCF Holdus</h2>
-      </div>
+     <!--  <div class="title tcf hiddenDisplay"> -->
+     <!--    <h1>HERE ARE SOME INSTRUCTION</h1> -->
+     <!--    <h2>By Lars TCF Holdus</h2> -->
+     <!--  </div> -->
       
-      <div class="title jenna hiddenDisplay">
-        <h1>THIS IS A SCRIPT</h1>
-        <h2>By Jenna Sutela</h2>
-     </div>
+     <!--  <div class="title jenna hiddenDisplay"> -->
+     <!--    <h1>THIS IS A SCRIPT</h1> -->
+     <!--    <h2>By Jenna Sutela</h2> -->
+     <!-- </div> -->
 
     </div>
 
