@@ -22,16 +22,30 @@
     function WidthChange(mq) {
             if (mq.matches) {
                 mobileSize = true;
+                if(landed)
+                {
+                    $(".hiddenDisplay").each(function() {
+                        $(this).css('visibility','visible').hide().show();
+                    });
+                    $(".entry").each(function() {
+                        $(this).hide();
+                    });
+                }
+                    
             }
             else
             {
                 mobileSize = false;
-                // if(landed)
-                // {
-                //     $(".entry").each(function() {
-                //         $(this).css('visibility','visible').hide().fadeIn(500);
-                //     });
-                // }
+                if(landed)
+                {
+                    $(".hiddenDisplay").each(function() {
+                        $(this).css('visibility','visible').hide();
+                    });
+                    $("#pdf").each(function() { $(this).show() });
+                    $(".entry").each(function() {
+                        $(this).css('visibility','visible').hide().show();
+                    });
+                }
             }
     }
 
@@ -78,22 +92,19 @@
 
         $(".entry").on("mouseenter", function() {
             var id = $(this).attr("class").split(" ")[1];
+            // $(".title").stop();
 
-            // reset
-            $(".title."+id).stop();
             $(".title."+id).find("h1 span").each( function() {
                 $(this).stop();
-                $(this).css({ opacity: 1.0});
-            });
-
-            // fade in and then fade out vowels
-            $(".title."+id).fadeIn(500, function() {
-                $("h1 span",this).each( function() {
-                    $(this).animate({ opacity: 0.0}, 2000, function() {
-                        // fade back in?
+                    $(this).css({ opacity: 1.0});
+                });
+                
+                $(".title."+id).fadeIn(1000, function() {
+                    $("h1 span",this).each( function() {
+                        $(this).animate({ opacity: 0.0}, 2000, function() {
+                        });
                     });
                 });
-            });
         });
 
         $(".entry").on("mouseleave", function() {
