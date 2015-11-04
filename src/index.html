@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 
+<!-- TODO: -->
+<!-- DONE - center PDFs on horizontal bar of O -->
+<!-- DONE - intro: keep vocal tract opaque for a bit longer and then fade faster -->
+<!-- DONE - img slow to load, try a smaller image and add timeout in case it takes too long to load? -->
+<!-- DONE - mobile: get rid of PDFs and just display a list of works bellow -->
+<!-- - transition between icon hovers could be smoother -->
+
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -7,24 +14,168 @@
   <meta property="og:url" content="http://evoc.al">
   <meta property="og:title" content="әṾӨȻΔ𐐉">
   <meta property="og:site_name" content="eVOCAL">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="eVOCAL-logo.svg">
+  <meta property="og:description" content="әṾӨȻΔ𐐉, Jenna Sutela and Lars TCF Holdhus, Sinne Gallery, Helsinki, November 6–29, 2015">
+  <Meta property="og:image" content="http://localhost/~vdb/evocal-web/src/assets/logo.svg">
 
-  <meta name="description" content="">
+  <meta name="description" content="әṾӨȻΔ𐐉, Jenna Sutela and Lars TCF Holdhus, Sinne Gallery, Helsinki, November 6–29, 2015">
+
   <title>әṾӨȻΔ𐐉</title>
 
-  <style>
-    body {
-    background-image: url(http://localhost/~vdb/evocal-web/src/beta/assets/logo.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40vw auto;
-    margin: 100vh auto auto auto;
-    }
-  </style>
-</head>
+  <link rel="stylesheet" href="http://localhost/~vdb/evocal-web/src/css/evocal.css" />
+  <script type="text/javascript" src="http://localhost/~vdb/evocal-web/src/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    var mobileSize = false;
+    var landed = false;
 
+    if(matchMedia) {
+        var mq = window.matchMedia("(max-width: 800px)");
+        mq.addListener(WidthChange);
+        WidthChange(mq);
+    }
+    
+    function WidthChange(mq) {
+            if (mq.matches) {
+                mobileSize = true;
+            }
+            else
+            {
+                mobileSize = false;
+                // if(landed)
+                // {
+                //     $(".entry").each(function() {
+                //         $(this).css('visibility','visible').hide().fadeIn(500);
+                //     });
+                // }
+            }
+    }
+
+
+    function fadeToMain() {
+        if( landed )
+            return
+        landed = true;
+
+        $("#logo").each(function() {
+            $("#pdf").css('visibility','visible').hide().show();
+            $(this).css('visibility','visible').hide().fadeIn(4000, function() {
+                if(!mobileSize)
+                {
+                    $(".entry").each(function() { 
+                        $(this).css('visibility','visible').hide().fadeIn(500);
+                    });
+                } else {
+                    $(".title").css('visibility','visible').hide().fadeIn(500);
+                }
+                
+            });
+        });
+        $(this).animate({opacity: 0.0}, 5000, function() {
+        });
+    }
+
+
+    function landing() {
+        $("#landing").each(function() {
+            $(this).css('visibility','visible').hide().show();
+            setTimeout(fadeToMain, 3000);
+        });
+    }
+
+    $(document).ready(function(){
+
+        setTimeout(fadeToMain, 1000);
+
+        // select all but vowels and place them between span tags so that they can be faded down on hover
+        $('.title').each(function(){
+            $("h1",this).html($("h1",this).html().replace(/[^aeiouyәṾӨȻΔ𐐉\s]+/gi, function func(x) {return ("<span>"+x+"</span>");}));
+        });
+
+        $(".entry").on("mouseenter", function() {
+            var id = $(this).attr("class").split(" ")[1];
+
+            // reset
+            $(".title."+id).stop();
+            $(".title."+id).find("h1 span").each( function() {
+                $(this).stop();
+                $(this).css({ opacity: 1.0});
+            });
+
+            // fade in and then fade out vowels
+            $(".title."+id).fadeIn(500, function() {
+                $("h1 span",this).each( function() {
+                    $(this).animate({ opacity: 0.0}, 2000, function() {
+                        // fade back in?
+                    });
+                });
+            });
+        });
+
+        $(".entry").on("mouseleave", function() {
+            var id = $(this).attr("class").split(" ")[1];
+            $(".title."+id).stop();
+            $(".title."+id).fadeOut(500, function() {
+            });
+        });
+
+        
+    });
+  </script>
+
+</head>
 <body>
-  <analitics></analitics>
+  <div id="landing" class="frame loader hidden">
+    <img src="http://localhost/~vdb/evocal-web/src/assets/vocal-tract-ballistic.jpg" 
+         class="hidden" 
+         onload="landing()" />
+  </div>
+
+  <div id="logo" class="frame loader hidden">
+    <img src="http://localhost/~vdb/evocal-web/src/assets/logo.svg" 
+         class="hidden" onload="loaded(this);"/>
+    
+    <div id="pdf" class="hidden">
+      <div class="entry exhibit hidden">
+        <a href="http://localhost/~vdb/evocal-web/src/pdf/eVOCAL-an-exhibition-by-jenna-sutela-and-lars-tcf-holdhus.pdf" target="_blank">
+          <span class="space"></span><img src="http://localhost/~vdb/evocal-web/src/assets/pdf.png" />
+        </a>
+      </div>
+      <div class="entry paradise hidden">
+        <a href="http://localhost/~vdb/evocal-web/src/pdf/eVOCAL-paradise-is-exactly-like-where-you-are-right-now-only-much-much-better.pdf" target="_blank">
+          <span class="space"></span><img src="http://localhost/~vdb/evocal-web/src/assets/pdf.png" />
+          </a>   
+      </div>
+      <!-- <div class="entry"></div> -->
+    </div>
+
+    <div id="title">
+      <div class="title exhibit hiddenDisplay">
+        <a href="http://localhost/~vdb/evocal-web/src/pdf/eVOCAL-an-exhibition-by-jenna-sutela-and-lars-tcf-holdhus.pdf" target="_blank">
+          <h1>әṾӨȻΔ𐐉, JENNA SUTELA AND LARS TCF HOLDHUS</h1>
+          <h2>At Sinne Gallery, Helsinki, November 6–29, 2015</h2>
+        </a>
+      </div>
+
+      <div class="title paradise hiddenDisplay">
+        <a href="http://localhost/~vdb/evocal-web/src/pdf/eVOCAL-paradise-is-exactly-like-where-you-are-right-now-only-much-much-better.pdf" target="_blank">
+          <h1>PARADISE IS EXACTLY LIKE WHERE YOU ARE RIGHT NOW ONLY MUCH, MUCH BETTER</h1>
+          <h2>Text by Tess Edmonson</h2>
+          <h2>Volume by Johanna Lundberg and Vincent de Belleval</h2>
+          </a>
+     </div>
+
+     <!--  <div class="title tcf hiddenDisplay"> -->
+     <!--    <h1>HERE ARE SOME INSTRUCTION</h1> -->
+     <!--    <h2>By Lars TCF Holdus</h2> -->
+     <!--  </div> -->
+      
+     <!--  <div class="title jenna hiddenDisplay"> -->
+     <!--    <h1>THIS IS A SCRIPT</h1> -->
+     <!--    <h2>By Jenna Sutela</h2> -->
+     <!-- </div> -->
+
+    </div>
+
+  </div>
+  <analytics></analytics>
 </body>
 </html>

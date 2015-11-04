@@ -124,7 +124,7 @@ div.frame {
     }
 
     #landing.frame {
-        background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/vocal-tract-ballistic.jpg');
+        background-image:url('http://localhost/~vdb/evocal-web/src/assets/vocal-tract-ballistic.jpg');
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
@@ -136,7 +136,7 @@ div.frame {
     }
 
     #logo.frame {
-        background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/logo.svg');
+        background-image:url('http://localhost/~vdb/evocal-web/src/assets/logo.svg');
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
@@ -182,7 +182,7 @@ div.frame {
     }
 
     #landing.frame {
-        background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/vocal-tract-ballistic.jpg');
+        background-image:url('http://localhost/~vdb/evocal-web/src/assets/vocal-tract-ballistic.jpg');
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
@@ -194,7 +194,7 @@ div.frame {
     }
     
     #logo.frame {
-        background-image:url('http://localhost/~vdb/evocal-web/src/beta/assets/logo.svg');
+        background-image:url('http://localhost/~vdb/evocal-web/src/assets/logo.svg');
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
