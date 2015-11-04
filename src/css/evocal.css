@@ -76,7 +76,7 @@ div.frame {
     width: 25vw;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-40%, -46%);
 }
 
 .entry {                  
@@ -84,7 +84,9 @@ div.frame {
     float: left;
     width: 40%;
     height: 100%;
-    margin: 0 5%;
+    margin: 0 auto;
+    /* background-color: blue; */
+    text-align: center;
 }
 
 .space {

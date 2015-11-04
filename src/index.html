@@ -40,12 +40,6 @@
             else
             {
                 mobileSize = false;
-                // if(landed)
-                // {
-                //     $(".entry").each(function() {
-                //         $(this).css('visibility','visible').hide().fadeIn(500);
-                //     });
-                // }
             }
     }
 
@@ -58,18 +52,22 @@
         $("#logo").each(function() {
             $("#pdf").css('visibility','visible').hide().show();
             $(this).css('visibility','visible').hide().fadeIn(4000, function() {
+            //$(this).css('visibility','visible').hide().fadeIn(1, function() {
                 if(!mobileSize)
                 {
                     $(".entry").each(function() { 
                         $(this).css('visibility','visible').hide().fadeIn(500);
+                        //$(this).css('visibility','visible').hide().fadeIn(1);
                     });
                 } else {
                     $(".title").css('visibility','visible').hide().fadeIn(500);
+                    //$(".title").css('visibility','visible').hide().fadeIn(1);
                 }
                 
             });
         });
         $(this).animate({opacity: 0.0}, 5000, function() {
+        //$(this).animate({opacity: 0.0}, 1, function() {
         });
     }
 
@@ -78,6 +76,7 @@
         $("#landing").each(function() {
             $(this).css('visibility','visible').hide().show();
             setTimeout(fadeToMain, 3000);
+            //setTimeout(fadeToMain, 1);
         });
     }
 
