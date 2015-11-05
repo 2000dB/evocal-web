@@ -83,9 +83,9 @@ div.frame {
 .entry {                  
     position: relative;
     float: left;
-    width: 40%;
+    width: 36%;
     height: 100%;
-    margin: 0 auto;
+    margin: 0 5% 0 0;
     /* background-color: blue; */
     text-align: center;
 }
